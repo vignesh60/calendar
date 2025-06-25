@@ -37,7 +37,6 @@ export default function Sidebar({
     const firstDay = getFirstDayOfMonth(miniCalendarDate);
     const days = [];
 
-  
     for (let i = 0; i < firstDay; i++) {
       days.push(<div key={`empty-${i}`} className="h-8"></div>);
     }
@@ -152,7 +151,7 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 p-4 flex flex-col justify-between">
+    <aside className="w-64 lg:h-auto md:h-auto h-screen bg-white border-r border-gray-200 p-4 flex flex-col justify-between">
       <div className="space-y-6">
         {/* Mini Calendar */}
         <div>
@@ -180,7 +179,7 @@ export default function Sidebar({
           </div>
 
           <div className="grid grid-cols-7 gap-1 text-center">
-            {["S", "M", "T", "W", "T", "F", "S"].map((day,index) => (
+            {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
               <div
                 key={index}
                 className="h-8 flex items-center justify-center text-xs font-medium text-gray-500"
@@ -327,7 +326,9 @@ export default function Sidebar({
           </div>
         </div>
       )}
-      <p className="text-xs flex border-l-3 border-orange-500 p-1 bg-orange-50 mt-2">Developer : Vignesh G</p>
+      <p className="text-xs flex border-l-3 border-orange-500 p-1 bg-orange-50 mt-2">
+        Developer : Vignesh G
+      </p>
     </aside>
   );
 }

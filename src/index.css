@@ -7,3 +7,72 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+.bar-icon {
+  display: none;
+}
+
+@media(max-width: 940px) {
+  * {
+    font-size: 0.85rem !important;
+  }
+
+  .sidebar-container {
+    position: fixed;
+    z-index: 100;
+    overflow-y: scroll;
+    height: 100svh !important;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .bar-icon {
+    display: block;
+  }
+
+  .sidebar-container.open {
+    transform: translateX(0);
+    background: #0000005a;
+  }
+}
+
+@media(max-width:800px) {
+
+  .prev-next-btn,
+  .today-btn,
+  .header-date {
+    display: none;
+  }
+}
+
+@media(max-width: 540px) {
+  * {
+    font-size: 0.8rem !important;
+  }
+  .bar-icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+  .calendar-logo {
+    width: 7rem;
+  }
+  .create-btn {
+    padding: 0.5rem;
+    font-size: 0.7rem !important;
+  }
+  .view-selector button{
+    padding: 0.5rem;
+    height: 1.8rem;
+    font-size: 0.7rem !important;
+  }
+  header {
+    padding: 0.8rem;
+  }
+}
+
+@media(max-width:400px){
+  .calendar-logo {
+    width: 6rem;
+  }
+}

@@ -1,4 +1,9 @@
-import { ChevronLeft, ChevronRight, Calendar, Plus } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  AlignJustify,
+} from "lucide-react";
 import logo from "../assets/logo.png";
 
 export default function Header({
@@ -7,6 +12,7 @@ export default function Header({
   currentDate,
   onNavigate,
   onCreate,
+  onSidebarToggle,
 }) {
   const formatHeaderDate = () => {
     const options = {
@@ -27,17 +33,21 @@ export default function Header({
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="logo" className="w-45" />
+            <AlignJustify
+              className="w-8 h-8 text-gray-900 bar-icon cursor-pointer hover:text-orange-500 transition"
+              onClick={onSidebarToggle}
+            />
+            <img src={logo} alt="logo" className="w-45 calendar-logo" />
           </div>
 
           <button
             onClick={() => onNavigate("today")}
-            className="inline-flex items-center justify-center rounded-md text-sm font-semibold h-9 px-3 py-2 border-2 border-blue-200 hover:bg-gradient-to-br from-purple-600 to-blue-700 hover:text-white hover:border-white cursor-pointer transition"
+            className="inline-flex items-center justify-center rounded-md text-sm font-semibold h-9 px-3 py-2 border-2 border-blue-200 hover:bg-gradient-to-br from-purple-600 to-blue-700 hover:text-white hover:border-white cursor-pointer transition today-btn"
           >
             Today
           </button>
 
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-1 prev-next-btn">
             <button
               onClick={() => onNavigate("prev")}
               className="inline-flex items-center justify-center rounded-md text-sm font-semibold h-9 px-3 py-2 border-2 border-blue-200 hover:bg-gradient-to-br from-purple-600 to-blue-700 hover:text-white hover:border-white cursor-pointer transition"
@@ -52,13 +62,13 @@ export default function Header({
             </button>
           </div>
 
-          <h2 className="text-xl font-medium text-gray-900">
+          <h2 className="text-xl font-medium text-gray-900 header-date">
             {formatHeaderDate()}
           </h2>
         </div>
 
         <div className="flex items-center space-x-4">
-          <div className="flex bg-white border-2 border-blue-500 rounded-lg p-1">
+          <div className="flex bg-white border-2 border-blue-500 rounded-lg p-1 view-selector">
             {["month", "week", "day"].map((viewType) => (
               <button
                 key={viewType}
@@ -75,7 +85,7 @@ export default function Header({
           </div>
 
           <button
-            className="inline-flex items-center justify-center rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 p-3 cursor-pointer transition"
+            className="inline-flex items-center justify-center rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 p-3 cursor-pointer transition create-btn"
             onClick={onCreate}
           >
             <Plus className="h-4 w-4 mr-2" />

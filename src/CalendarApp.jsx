@@ -52,6 +52,7 @@ export default function CalendarApp() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const loadEvents = () => {
@@ -225,15 +226,18 @@ export default function CalendarApp() {
         currentDate={currentDate}
         onNavigate={navigateDate}
         onCreate={handleCreateEvent}
+        onSidebarToggle={() => setIsSidebarOpen(!isSidebarOpen)}
       />
 
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar
-          currentDate={currentDate}
-          onDateSelect={setCurrentDate}
-          events={events}
-          onEventsDelete={handleEventsDelete}
-        />
+        <div className={`sidebar-container ${isSidebarOpen ? "open" : ""}`}>
+          <Sidebar
+            currentDate={currentDate}
+            onDateSelect={setCurrentDate}
+            events={events}
+            onEventsDelete={handleEventsDelete}
+          />
+        </div>
 
         <main className="flex-1 overflow-auto relative">
           {isLoading ? (

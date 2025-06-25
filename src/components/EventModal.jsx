@@ -172,7 +172,7 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
                   key={option.value}
                   type="button"
                   onClick={() => setColor(option.value)}
-                  className={`w-10 h-10 rounded-full ${option.value} transition-all duration-200 ${
+                  className={`w-10 h-10 rounded-lg ${option.value} transition-all duration-200 ${
                     color === option.value ? "ring-4 ring-gray-300 ring-offset-2 scale-110" : "hover:scale-105"
                   }`}
                   title={option.name}
