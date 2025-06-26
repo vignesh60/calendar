@@ -48,7 +48,7 @@ export default function EventMenu({ event, onEdit, onDelete }) {
       </button>
 
       {isOpen && (
-        <div className="absolute z-20 right-0 top-6 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50 min-w-[120px]">
+        <div className="absolute z-500 right-0 top-6 bg-white rounded-lg shadow-lg border border-gray-200 py-1 min-w-[120px]">
           <button
             onClick={handleEdit}
             className="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center"

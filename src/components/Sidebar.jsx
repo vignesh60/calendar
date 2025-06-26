@@ -151,7 +151,7 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="w-64 lg:h-auto md:h-auto h-screen bg-white border-r border-gray-200 p-4 flex flex-col justify-between">
+    <aside className="w-64 lg:h-auto h-screen bg-white border-r border-gray-200 p-4 flex flex-col justify-between">
       <div className="space-y-6">
         {/* Mini Calendar */}
         <div>
@@ -289,21 +289,24 @@ export default function Sidebar({
 
       {/* Confirmation Modal */}
       {showConfirmModal && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl animate-pop-in">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 h-10 w-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
-                <AlertTriangle className="h-6 w-6 text-red-600" />
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 ">
+          <div className="bg-white rounded-xl p-6 max-w-md w-full mx-4 shadow-xl">
+            <div className="flex items-start relative">
+              <div className="flex-shrink-0 h-12 w-16 rounded-xl bg-red-500 flex items-center justify-center mr-3 absolute -top-12 left-[50%] transform -translate-x-1/2 border-2 border-white">
+                <AlertTriangle className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900">
+                <div>
+                <h2 className="text-2xl font-bold text-gray-800">
                   Confirm Deletion
-                </h3>
+                </h2>
+                <div className="w-12 h-1 bg-gradient-to-r from-red-400 to-red-600 rounded-full mt-1"></div>
+              </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-600">
                     Are you sure you want to delete {getScopeDescription()}?
                   </p>
-                  <p className="text-sm text-red-600 mt-2 font-medium">
+                  <p className="text-sm text-red-600 mt-2 font-medium bg-red-50 p-2 rounded-md">
                     This action cannot be undone.
                   </p>
                 </div>
@@ -312,13 +315,13 @@ export default function Sidebar({
             <div className="mt-4 flex justify-end space-x-3">
               <button
                 onClick={() => setShowConfirmModal(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium flex items-center cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 onClick={confirmDelete}
-                className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors cursor-pointer"
+                className="px-5 py-2.5 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-xl hover:from-orange-600 hover:to-red-700 flex items-center shadow-md hover:shadow-lg transition-all duration-200 font-medium cursor-pointer"
               >
                 Delete
               </button>

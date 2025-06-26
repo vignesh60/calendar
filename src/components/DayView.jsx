@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import EventMenu from "./EventMenu";
 
 export default function DayView({
   currentDate,
   events,
   onEventClick,
   onDateClick,
-  onEventDelete,
 }) {
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
@@ -122,19 +120,12 @@ export default function DayView({
                   onMouseEnter={(e) => handleEventHover(event, e)}
                   onMouseLeave={() => setHoveredEvent(null)}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-start justify-between relative">
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-base truncate">
                         {event.title}
                       </div>
                     </div>
-                    <EventMenu
-                      event={event}
-                      onEdit={onEventClick}
-                      onDelete={(eventId) => {
-                        if (onEventDelete) onEventDelete(eventId);
-                      }}
-                    />
                   </div>
                   <div className="text-xs opacity-90 mb-1">
                     {event.startDate.toLocaleTimeString("en-US", {

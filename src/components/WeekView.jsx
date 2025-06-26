@@ -1,12 +1,10 @@
 import { useState } from "react";
-import EventMenu from "./EventMenu";
 
 export default function WeekView({
   currentDate,
   events,
   onEventClick,
   onDateClick,
-  onEventDelete,
 }) {
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
@@ -145,7 +143,7 @@ export default function WeekView({
                         <div className="font-medium truncate">
                           {event.title}
                         </div>
-                        <div className="text-xs opacity-90">
+                        <div className="text-xs opacity-90 truncate">
                           {event.startDate.toLocaleTimeString("en-US", {
                             hour: "numeric",
                             minute: "2-digit",
@@ -157,13 +155,6 @@ export default function WeekView({
                           })}
                         </div>
                       </div>
-                      <EventMenu
-                        event={event}
-                        onEdit={onEventClick}
-                        onDelete={(eventId) => {
-                          if (onEventDelete) onEventDelete(eventId);
-                        }}
-                      />
                     </div>
                   </div>
                 );

@@ -96,9 +96,9 @@ export default function EventModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-500">
       <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden">
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-100 to-purple-50">
+        <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-gradient-to-r from-blue-100 to-purple-50">
           <h2 className="text-xl font-bold text-gray-900">
             {event ? "Edit Event" : "Create New Event"}
           </h2>
@@ -110,7 +110,7 @@ export default function EventModal({
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+        <form onSubmit={handleSubmit} className="p-5 space-y-4">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Event Title
@@ -216,12 +216,12 @@ export default function EventModal({
             </div>
           </div>
 
-          <div className="flex justify-between pt-6 border-t border-gray-200">
+          <div className="flex justify-between pt-2 border-t border-gray-200">
             {event && onDelete && (
               <button
                 type="button"
                 onClick={onDelete}
-                className="inline-flex items-center justify-center bg-red-100 rounded-md text-sm font-medium text-red-500 h-10 px-4 py-2 cursor-pointer hover:bg-red-500 hover:text-white transition-colors"
+                className="px-5 py-2.5 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-xl hover:from-orange-600 hover:to-red-700 flex items-center shadow-md hover:shadow-lg transition-all duration-200 font-medium cursor-pointer"
               >
                 <Trash2 className="h-4 w-4 mr-2" />
                 Delete Event
@@ -231,13 +231,13 @@ export default function EventModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center justify-center border-2 border-gray-900 rounded-md text-sm font-medium h-10 px-4 py-2 cursor-pointer hover:bg-gray-900 hover:text-white transition"
+                className="px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium flex items-center cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 h-10 px-4 py-2 cursor-pointer transition"
+                className="px-5 py-2.5 bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl hover:from-orange-500 hover:to-red-700 flex items-center shadow-md hover:shadow-lg transition-all duration-200 font-medium cursor-pointer"
               >
                 {event ? "Update Event" : "Create Event"}
               </button>

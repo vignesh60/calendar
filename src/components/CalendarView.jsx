@@ -28,7 +28,6 @@ export default function CalendarView({
           events={events}
           onEventClick={onEventClick}
           onDateClick={onDateClick}
-          onEventDelete={onEventDelete}
         />
       );
     case "day":
@@ -38,7 +37,6 @@ export default function CalendarView({
           events={events}
           onEventClick={onEventClick}
           onDateClick={onDateClick}
-          onEventDelete={onEventDelete}
         />
       );
     default:
