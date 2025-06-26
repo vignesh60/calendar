@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { X, Trash2 } from "lucide-react"
+import { useState, useEffect } from "react";
+import { X, Trash2 } from "lucide-react";
 
 const colorOptions = [
   { name: "Blue", value: "bg-blue-500" },
@@ -8,9 +8,26 @@ const colorOptions = [
   { name: "Red", value: "bg-red-500" },
   { name: "Purple", value: "bg-purple-500" },
   { name: "Pink", value: "bg-pink-500" },
-]
+  { name: "Yellow", value: "bg-yellow-500" },
+  { name: "Teal", value: "bg-teal-500" },
+  { name: "Indigo", value: "bg-indigo-500" },
+  { name: "Cyan", value: "bg-cyan-500" },
+  { name: "Lime", value: "bg-lime-500" },
+  { name: "Amber", value: "bg-amber-500" },
+  { name: "Emerald", value: "bg-emerald-500" },
+  { name: "Rose", value: "bg-rose-500" },
+  { name: "Sky", value: "bg-sky-500" },
+];
 
-export default function EventModal({ isOpen, onClose, event, selectedDate, onSave, onDelete }) {
+
+export default function EventModal({
+  isOpen,
+  onClose,
+  event,
+  selectedDate,
+  onSave,
+  onDelete,
+}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -18,7 +35,6 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
   const [endDate, setEndDate] = useState("");
   const [endTime, setEndTime] = useState("");
   const [color, setColor] = useState("bg-blue-500");
-
 
   const formatDateForInput = (date) => {
     if (!date) return "";
@@ -30,7 +46,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
   const formatTimeForInput = (date) => {
     if (!date) return "";
     const d = new Date(date);
-    return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+    return `${String(d.getHours()).padStart(2, "0")}:${String(
+      d.getMinutes()
+    ).padStart(2, "0")}`;
   };
 
   useEffect(() => {
@@ -58,14 +76,11 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
     }
   }, [event, selectedDate]);
 
-
-
-
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const startDateTime = new Date(`${startDate}T${startTime}`)
-    const endDateTime = new Date(`${endDate}T${endTime}`)
+    const startDateTime = new Date(`${startDate}T${startTime}`);
+    const endDateTime = new Date(`${endDate}T${endTime}`);
 
     const eventData = {
       title,
@@ -73,20 +88,22 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
       startDate: startDateTime,
       endDate: endDateTime,
       color,
-    }
+    };
 
-    onSave(eventData)
-  }
+    onSave(eventData);
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden">
         <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-100 to-purple-50">
-          <h2 className="text-xl font-bold text-gray-900">{event ? "Edit Event" : "Create New Event"}</h2>
-          <button 
-            onClick={onClose} 
+          <h2 className="text-xl font-bold text-gray-900">
+            {event ? "Edit Event" : "Create New Event"}
+          </h2>
+          <button
+            onClick={onClose}
             className="text-gray-900 hover:text-white hover:bg-red-500 cursor-pointer p-1 rounded-lg transition-colors"
           >
             <X className="h-6 w-6" />
@@ -95,7 +112,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
 
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Event Title</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Event Title
+            </label>
             <input
               type="text"
               value={title}
@@ -107,7 +126,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Description
+            </label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -119,7 +140,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Start Date</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Start Date
+              </label>
               <input
                 type="date"
                 value={startDate}
@@ -129,7 +152,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Start Time</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Start Time
+              </label>
               <input
                 type="time"
                 value={startTime}
@@ -142,7 +167,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">End Date</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                End Date
+              </label>
               <input
                 type="date"
                 value={startDate}
@@ -153,7 +180,9 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">End Time</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                End Time
+              </label>
               <input
                 type="time"
                 value={endTime}
@@ -164,16 +193,22 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">Event Color</label>
-            <div className="flex space-x-3">
+          <div className="w-full">
+            <label className="block text-sm font-semibold text-gray-700 mb-3">
+              Event Color
+            </label>
+            <div className="flex space-x-3 overflow-x-auto w-full scrollbar-thin px-1 py-2">
               {colorOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => setColor(option.value)}
-                  className={`w-10 h-10 rounded-lg ${option.value} transition-all duration-200 ${
-                    color === option.value ? "ring-4 ring-gray-300 ring-offset-2 scale-110" : "hover:scale-105"
+                  className={`min-w-[2.5rem] h-10 rounded-lg ${
+                    option.value
+                  } transition-all duration-200 flex-shrink-0 ${
+                    color === option.value
+                      ? "ring-4 ring-gray-300 ring-offset-2 scale-110"
+                      : "hover:scale-105"
                   }`}
                   title={option.name}
                 />
@@ -211,5 +246,5 @@ export default function EventModal({ isOpen, onClose, event, selectedDate, onSav
         </form>
       </div>
     </div>
-  )
+  );
 }

@@ -33,7 +33,64 @@ const initialEvents = [
     endDate: new Date(2025, 5, 25, 12, 0),
     color: "bg-green-500",
   },
+  {
+    id: "4",
+    title: "Meeting 1",
+    description: "Discussion on task distribution",
+    startDate: new Date(2025, 5, 5, 9, 0),
+    endDate: new Date(2025, 5, 5, 12, 0),
+    color: "bg-red-500",
+  },
+  {
+    id: "5",
+    title: "Meeting 2",
+    description: "Backend architecture deep dive",
+    startDate: new Date(2025, 5, 5, 13, 0),
+    endDate: new Date(2025, 5, 5, 17, 0),
+    color: "bg-purple-500",
+  },
+  {
+    id: "6",
+    title: "Meeting 3",
+    description: "Frontend component review",
+    startDate: new Date(2025, 5, 5, 18, 0),
+    endDate: new Date(2025, 5, 5, 20, 0),
+    color: "bg-pink-500",
+  },
+  {
+    id: "7",
+    title: "Meeting 4",
+    description: "Deployment checklist",
+    startDate: new Date(2025, 5, 5, 21, 0),
+    endDate: new Date(2025, 5, 5, 23, 0),
+    color: "bg-yellow-500",
+  },
+  {
+    id: "8",
+    title: "Meeting 5",
+    description: "Weekly QA sync",
+    startDate: new Date(2025, 5, 5, 6, 0),
+    endDate: new Date(2025, 5, 5, 9, 0),
+    color: "bg-cyan-500",
+  },
+  {
+    id: "9",
+    title: "Meeting 1",
+    description: "Client feedback session",
+    startDate: new Date(2025, 5, 10, 10, 0),
+    endDate: new Date(2025, 5, 5, 11, 0),
+    color: "bg-teal-500",
+  },
+  {
+    id: "10",
+    title: "Meeting 2",
+    description: "Sprint planning",
+    startDate: new Date(2025, 5, 10, 12, 0),
+    endDate: new Date(2025, 5, 10, 14, 0),
+    color: "bg-indigo-500",
+  },
 ];
+
 
 const isValidEvent = (event) => {
   return (
