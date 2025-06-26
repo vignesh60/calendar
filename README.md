@@ -10,12 +10,10 @@
 
  ## Home Page
 ### Monthly view
- ![Screenshot (589)](https://github.com/user-attachments/assets/6b8d1f6e-450d-4f32-abd6-8fb4f8537e38)
+![Screenshot (592)](https://github.com/user-attachments/assets/0b609b45-a322-42fb-aff7-54acb554f6b2)
 
 ### Weekly view
- ![Screenshot (590)](https://github.com/user-attachments/assets/e66e6119-5349-484b-adf4-8cfdcb4682ff)
+![Screenshot (593)](https://github.com/user-attachments/assets/005c24a5-2467-4c53-ae59-168e2721bc37)
 
 ### Daily view
-![Screenshot (591)](https://github.com/user-attachments/assets/4330b4fe-32ca-42ea-9d8d-56a4c0cfa0b1)
-
-
+![Screenshot (594)](https://github.com/user-attachments/assets/9590c57d-6c26-4d5e-8069-04c690bf91d3)
